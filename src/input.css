@@ -2,30 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-body {
-    font-family:"Inter", sans-serif;
+/* Fonts are self-hosted (dist/fonts) so the page makes no third-party requests. */
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../dist/fonts/archivo-black-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../dist/fonts/space-mono-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../dist/fonts/space-mono-latin-700-normal.woff2') format('woff2');
 }
 
-.navbar-fixed {
-    @apply fixed z-[9999] bg-white bg-opacity-80;
-    backdrop-filter: blur(5px);
-    box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.2);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+  }
+  body {
+    @apply bg-paper font-mono text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid #6f4bff;
+    outline-offset: 3px;
+  }
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
 }
 
-.hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out;
-}
+@layer components {
+  /* Buttons: hard shadow that "presses" into the page on hover/active */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 border-3 border-ink bg-white px-4 py-3 text-[11px] font-bold uppercase tracking-wide shadow-brutal transition duration-100 sm:text-xs;
+  }
+  .btn:hover {
+    @apply translate-x-[2px] translate-y-[2px] shadow-brutal-xs;
+  }
+  .btn:active {
+    @apply translate-x-1 translate-y-1 shadow-none;
+  }
+  .btn-sm {
+    @apply px-3 py-2 text-[10px] shadow-brutal-sm sm:text-[11px];
+  }
 
-.hamburger-active > span:nth-child(1) {
-    @apply  rotate-45;
-}
+  /* Square icon buttons (socials, carousel arrows) */
+  .icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center border-3 border-ink bg-white shadow-brutal-sm transition duration-100;
+  }
+  .icon-btn:hover {
+    @apply translate-x-[2px] translate-y-[2px] bg-lime shadow-none;
+  }
 
-.hamburger-active > span:nth-child(3) {
-    @apply  -rotate-45;
-}
+  .chip {
+    @apply border-2 border-ink bg-white px-2 py-0.5 text-[10px] font-bold;
+  }
 
-.hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+  .nav-link {
+    @apply relative py-1 text-[11px] font-bold uppercase tracking-wider;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-[3px] w-full origin-left scale-x-0 bg-violet transition-transform duration-150;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    @apply scale-x-100;
+  }
+
+  .skill {
+    @apply flex flex-col items-center gap-3 px-2 py-5 text-[11px] font-bold transition-transform duration-150;
+  }
+  .skill:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Graph-paper backgrounds */
+  .grid-paper {
+    background-color: #fff;
+    background-image: linear-gradient(rgba(11, 11, 11, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 11, 11, 0.16) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .grid-violet {
+    background-color: #6f4bff;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 }
