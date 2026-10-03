@@ -1,15 +1,14 @@
 {
   "name": "tailwind-portofolio",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css" : "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "css": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify"
   },
   "keywords": [],
-  "author": "",
+  "author": "Itoshiko Nurahman",
   "license": "ISC",
-  "description": "",
+  "description": "Personal portfolio of Itoshiko Nurahman - neo-brutalist, built with Tailwind CSS",
   "devDependencies": {
     "tailwindcss": "^3.4.4"
   }

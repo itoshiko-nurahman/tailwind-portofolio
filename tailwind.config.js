@@ -1,25 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['index.html'],
+  content: ['index.html', 'dist/js/*.js'],
   theme: {
-    container: {
-      center: true,
-      padding: '16px',
-
-    },
     extend: {
       colors: {
-        'primary': '#14b8a6',
-        'secondary': '#64748b',
-        'dark': '#0f172a',
+        ink: '#0b0b0b',
+        paper: '#f4f2ec',
+        paper2: '#eceae3',
+        lime: '#c4f04d',
+        pink: '#ff7d9f',
+        violet: '#6f4bff',
       },
-      screens : {
-        'xl': '960px',
-        '2xl': '1320px',
-
-      }
+      fontFamily: {
+        display: ['"Archivo Black"', 'Impact', 'sans-serif'],
+        mono: ['"Space Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      borderWidth: {
+        3: '3px',
+      },
+      boxShadow: {
+        brutal: '4px 4px 0 0 #0b0b0b',
+        'brutal-sm': '3px 3px 0 0 #0b0b0b',
+        'brutal-xs': '2px 2px 0 0 #0b0b0b',
+        'brutal-lg': '10px 10px 0 0 #0b0b0b',
+      },
     },
   },
   plugins: [],
-}
-
+};
