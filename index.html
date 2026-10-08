@@ -3,12 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itoshiko Nurahman | Web &amp; AI Developer</title>
-    <meta name="description" content="Portfolio of Itoshiko Nurahman, an Informatics student at Universitas Ahmad Dahlan who builds web apps and NLP models and is growing toward AI/ML and QA automation engineering.">
+    <title>Itoshiko Nurahman | Web &amp; AI Developer Portfolio</title>
+    <meta name="description" content="Itoshiko Nurahman, Informatics student at Universitas Ahmad Dahlan, Yogyakarta. Web &amp; AI developer building Laravel, React and Python NLP projects.">
+    <meta name="author" content="Itoshiko Nurahman">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://itoshiko-nurahman.github.io/tailwind-portofolio/">
     <meta name="theme-color" content="#c4f04d">
-    <meta property="og:title" content="Itoshiko Nurahman | Web &amp; AI Developer">
-    <meta property="og:description" content="Informatics student building web apps and NLP models. Projects, training and experience.">
-    <meta property="og:type" content="website">
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Itoshiko Nurahman">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://itoshiko-nurahman.github.io/tailwind-portofolio/">
+    <meta property="og:title" content="Itoshiko Nurahman | Web &amp; AI Developer Portfolio">
+    <meta property="og:description" content="Itoshiko Nurahman, Informatics student at Universitas Ahmad Dahlan, Yogyakarta. Web &amp; AI developer building Laravel, React and Python NLP projects.">
+    <meta property="og:image" content="https://itoshiko-nurahman.github.io/tailwind-portofolio/dist/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Itoshiko Nurahman, Web &amp; AI Developer, portfolio preview">
+    <meta property="profile:first_name" content="Itoshiko">
+    <meta property="profile:last_name" content="Nurahman">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ItoshikoNurahm1">
+    <meta name="twitter:title" content="Itoshiko Nurahman | Web &amp; AI Developer Portfolio">
+    <meta name="twitter:description" content="Itoshiko Nurahman, Informatics student at Universitas Ahmad Dahlan, Yogyakarta. Web &amp; AI developer building Laravel, React and Python NLP projects.">
+    <meta name="twitter:image" content="https://itoshiko-nurahman.github.io/tailwind-portofolio/dist/img/og-image.jpg">
+
+    <!-- Structured data: tells search engines this is Itoshiko Nurahman's profile page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://itoshiko-nurahman.github.io/tailwind-portofolio/",
+        "name": "Itoshiko Nurahman | Web & AI Developer Portfolio",
+        "dateModified": "2026-10-08",
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://itoshiko-nurahman.github.io/tailwind-portofolio/#person",
+            "name": "Itoshiko Nurahman",
+            "alternateName": "Itoshiko",
+            "url": "https://itoshiko-nurahman.github.io/tailwind-portofolio/",
+            "image": "https://itoshiko-nurahman.github.io/tailwind-portofolio/dist/img/hero.jpg",
+            "jobTitle": "Web & AI Developer",
+            "description": "Informatics student at Universitas Ahmad Dahlan who builds web apps and NLP models, growing toward AI/ML and QA automation engineering.",
+            "email": "mailto:itoshikonurahman@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Yogyakarta",
+                "addressCountry": "ID"
+            },
+            "affiliation": {
+                "@type": "CollegeOrUniversity",
+                "name": "Universitas Ahmad Dahlan",
+                "url": "https://uad.ac.id"
+            },
+            "knowsAbout": [
+                "Web Development",
+                "Machine Learning",
+                "Natural Language Processing",
+                "QA Automation",
+                "Laravel",
+                "React",
+                "Vue.js",
+                "Python",
+                "Tailwind CSS",
+                "IndoBERT"
+            ],
+            "sameAs": [
+                "https://github.com/itoshiko-nurahman",
+                "https://www.linkedin.com/in/itoshiko-nurahman/",
+                "https://www.instagram.com/itoshiko_n/",
+                "https://x.com/ItoshikoNurahm1"
+            ]
+        }
+    }
+    </script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' fill='%23c4f04d' stroke='%230b0b0b' stroke-width='4'/%3E%3Cpath d='M12 11l-5 5 5 5M20 11l5 5-5 5' fill='none' stroke='%230b0b0b' stroke-width='3'/%3E%3C/svg%3E">
     <link rel="preload" href="dist/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="dist/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -82,8 +151,10 @@
                 <!-- Hero -->
                 <section class="grid border-b-3 border-ink lg:grid-cols-[1.08fr_1fr]" aria-labelledby="hero-title">
                     <div class="grid-paper flex flex-col justify-center border-b-3 border-ink px-6 py-10 sm:px-10 sm:py-14 lg:border-b-0 lg:border-r-3 lg:px-12">
-                        <p class="mb-6 w-fit bg-violet px-2.5 py-1.5 text-[11px] font-bold uppercase text-white">Hey, I'm Itoshiko <span aria-hidden="true">👋</span></p>
-                        <h1 id="hero-title" class="font-display text-[clamp(2.6rem,7.4vw,4.5rem)] uppercase leading-[0.98]">Web &amp; AI<br>Developer</h1>
+                        <h1 id="hero-title">
+                            <span class="mb-6 block w-fit bg-violet px-2.5 py-1.5 font-mono text-[11px] font-bold uppercase leading-normal text-white">Hey, I'm Itoshiko Nurahman <span aria-hidden="true">👋</span></span>
+                            <span class="block font-display text-[clamp(2.6rem,7.4vw,4.5rem)] uppercase leading-[0.98]">Web &amp; AI<br>Developer</span>
+                        </h1>
                         <p class="mt-6 max-w-[34ch] text-[13px] leading-relaxed sm:text-sm">Informatics student at Universitas Ahmad Dahlan. I build web apps and train NLP models, and I'm growing toward AI/ML and QA automation engineering.</p>
                         <div class="mt-8 flex flex-wrap gap-4">
                             <a href="#projects" class="btn bg-lime">View my work <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
@@ -675,27 +746,27 @@
                         <ul class="grid grid-cols-2 gap-5 sm:grid-cols-3">
                             <li>
                                 <button type="button" data-lightbox data-src="dist/img/gallery/flowers.jpg" data-alt="White ixora flowers against dark green leaves" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: White ixora flowers against dark green leaves">
-                                    <img src="dist/img/gallery/flowers.jpg" alt="White ixora flowers against dark green leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
+                                    <img src="dist/img/gallery/flowers.jpg" width="750" height="1000" alt="White ixora flowers against dark green leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
                                 </button>
                             </li>
                             <li>
                                 <button type="button" data-lightbox data-src="dist/img/gallery/alpaca-pen.jpg" data-alt="Pink alpaca-shaped pen top in front of a window and a cloudy sky" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Pink alpaca-shaped pen top in front of a window and a cloudy sky">
-                                    <img src="dist/img/gallery/alpaca-pen.jpg" alt="Pink alpaca-shaped pen top in front of a window and a cloudy sky" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
+                                    <img src="dist/img/gallery/alpaca-pen.jpg" width="750" height="1000" alt="Pink alpaca-shaped pen top in front of a window and a cloudy sky" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
                                 </button>
                             </li>
                             <li>
                                 <button type="button" data-lightbox data-src="dist/img/gallery/campus-sky.jpg" data-alt="Blue campus building under a bright sky, framed by tree leaves" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Blue campus building under a bright sky, framed by tree leaves">
-                                    <img src="dist/img/gallery/campus-sky.jpg" alt="Blue campus building under a bright sky, framed by tree leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
+                                    <img src="dist/img/gallery/campus-sky.jpg" width="750" height="1000" alt="Blue campus building under a bright sky, framed by tree leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
                                 </button>
                             </li>
                             <li>
                                 <button type="button" data-lightbox data-src="dist/img/gallery/quran-laptop.jpg" data-alt="A Qur&#39;an and green prayer beads resting on a laptop keyboard" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: A Qur&#39;an and green prayer beads resting on a laptop keyboard">
-                                    <img src="dist/img/gallery/quran-laptop.jpg" alt="A Qur&#39;an and green prayer beads resting on a laptop keyboard" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
+                                    <img src="dist/img/gallery/quran-laptop.jpg" width="750" height="1000" alt="A Qur&#39;an and green prayer beads resting on a laptop keyboard" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
                                 </button>
                             </li>
                             <li>
                                 <button type="button" data-lightbox data-src="dist/img/gallery/portrait.jpg" data-alt="Close-up portrait of Itoshiko" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Close-up portrait of Itoshiko">
-                                    <img src="dist/img/gallery/portrait.jpg" alt="Close-up portrait of Itoshiko" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
+                                    <img src="dist/img/gallery/portrait.jpg" width="1000" height="1000" alt="Close-up portrait of Itoshiko" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
                                 </button>
                             </li>
                             <li>
