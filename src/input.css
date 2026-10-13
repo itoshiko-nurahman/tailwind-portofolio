@@ -111,3 +111,405 @@
     background-size: 24px 24px;
   }
 }
+
+/* ------------------------------------------------------------------
+   Motion: loading screen, hero intro and scroll reveals.
+   Kept outside @layer so Tailwind never purges classes that only
+   dist/js/motion.js adds. Everything here is gated on html.js, so the
+   page is fully visible when JavaScript is off.
+------------------------------------------------------------------- */
+:root {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-back: cubic-bezier(0.25, 1.4, 0.4, 1);
+  --ease-wipe: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+/* Loader shell */
+.loader {
+  display: none;
+}
+.js .loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow: hidden;
+  /* Failsafe: if the script never runs, get out of the way after 7s */
+  animation: loader-failsafe 0s linear 7s forwards;
+}
+@keyframes loader-failsafe {
+  to {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Background: three graph-paper columns, each trailing a colored band that sweeps across the page on exit */
+.loader-cols {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.loader-cols > span {
+  position: relative;
+  background-color: #f4f2ec;
+  background-image: linear-gradient(rgba(11, 11, 11, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 11, 11, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  border-bottom: 3px solid #0b0b0b;
+  transition: transform 1s var(--ease-wipe);
+  transition-delay: calc(var(--c) * 90ms);
+}
+.loader-cols > span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 3px);
+  height: 100%;
+  background: var(--tail);
+  border-bottom: 3px solid #0b0b0b;
+}
+.loader-cols > span:not(:last-child)::after {
+  border-right: 3px solid #0b0b0b;
+}
+.loader--exit .loader-cols > span {
+  transform: translateY(calc(-200% - 12px));
+}
+
+/* Card */
+.loader-card {
+  position: relative;
+  width: min(420px, 100%);
+  border: 3px solid #0b0b0b;
+  background: #fff;
+  box-shadow: 10px 10px 0 0 #0b0b0b;
+  animation: loader-card-in 0.5s var(--ease-back) backwards;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.3s ease, translate 0.35s var(--ease-out);
+}
+@keyframes loader-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotate(-2deg);
+  }
+}
+.loader--done .loader-card {
+  transform: translate(6px, 6px);
+  box-shadow: 4px 4px 0 0 #0b0b0b;
+}
+.loader--exit .loader-card {
+  opacity: 0;
+  translate: 0 -40px;
+}
+
+.loader-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 3px solid #0b0b0b;
+  background: #0b0b0b;
+  padding: 8px 12px;
+}
+.loader-top i {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+}
+.loader-top span {
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.loader-body {
+  padding: 22px 20px 18px;
+}
+@media (min-width: 400px) {
+  .loader-body {
+    padding: 26px 26px 20px;
+  }
+}
+
+/* "ITOSHIKO" letters dropping into colored tiles */
+.loader-word {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+  font-family: 'Archivo Black', Impact, sans-serif;
+  font-size: clamp(1.25rem, 6vw, 1.75rem);
+  line-height: 1;
+}
+.loader-word span {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 3px solid #0b0b0b;
+  background: #fff;
+  box-shadow: 2px 2px 0 0 #0b0b0b;
+  animation: letter-drop 0.55s var(--ease-back) backwards;
+  animation-delay: calc(120ms + var(--i) * 70ms);
+}
+.loader-word span:nth-child(4n + 1) {
+  background: #c4f04d;
+}
+.loader-word span:nth-child(4n + 2) {
+  background: #ff7d9f;
+}
+.loader-word span:nth-child(4n + 3) {
+  background: #6f4bff;
+  color: #fff;
+}
+@keyframes letter-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-36px) rotate(-14deg);
+  }
+}
+/* A little hop once loading finishes */
+.loader--done .loader-word span {
+  animation: letter-hop 0.4s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 30ms);
+}
+@keyframes letter-hop {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.loader--quick .loader-word span,
+.loader--quick .loader-card {
+  animation: none;
+}
+
+.loader-sub {
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Fake terminal: each line lights up when its real milestone happens */
+.loader-log {
+  margin-top: 14px;
+  min-height: 4.8em;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.loader-log li {
+  opacity: 0;
+  translate: -8px 0;
+  transition: opacity 0.25s ease, translate 0.25s var(--ease-out);
+}
+.loader-log li + li {
+  margin-top: 0.2em;
+}
+.loader-log li.on {
+  opacity: 1;
+  translate: 0 0;
+}
+.loader-log b {
+  display: inline-block;
+  width: 1.4em;
+  color: #6f4bff;
+}
+
+/* Progress bar with moving hazard stripes */
+.loader-track {
+  margin-top: 14px;
+  height: 22px;
+  border: 3px solid #0b0b0b;
+  background: #fff;
+  box-shadow: 3px 3px 0 0 #0b0b0b;
+  overflow: hidden;
+}
+.loader-fill {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-right: 3px solid #0b0b0b;
+  background: repeating-linear-gradient(-45deg, #c4f04d 0 10px, #b2de3b 10px 20px);
+  background-size: 28.28px 28.28px;
+  animation: stripes 0.6s linear infinite;
+}
+@keyframes stripes {
+  to {
+    background-position: 28.28px 0;
+  }
+}
+.loader-meta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#loader-pct {
+  font-family: 'Archivo Black', Impact, sans-serif;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.loader-dots::after {
+  content: '';
+  animation: dots 1.2s steps(4, end) infinite;
+}
+@keyframes dots {
+  0% { content: ''; }
+  25% { content: '.'; }
+  50% { content: '..'; }
+  75% { content: '...'; }
+}
+
+/* Hero intro, played right after the loader wipes away */
+.js [data-intro] {
+  opacity: 0;
+  /* Failsafe: show content even if the script never runs */
+  animation: intro-failsafe 0s linear 7s forwards;
+}
+@keyframes intro-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+.intro-play [data-intro] {
+  animation: intro-up 0.65s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+.intro-play [data-intro='slam'] {
+  animation: intro-slam 0.6s var(--ease-back) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+.intro-play [data-intro='pop'] {
+  animation: intro-pop 0.75s var(--ease-back) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+.intro-play [data-intro='right'] {
+  animation: intro-right 0.7s var(--ease-back) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+@keyframes intro-up {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes intro-slam {
+  from {
+    opacity: 0;
+    translate: -40px 0;
+    rotate: -3deg;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+@keyframes intro-pop {
+  from {
+    opacity: 0;
+    scale: 0.85;
+    rotate: 6deg;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: 0deg;
+  }
+}
+@keyframes intro-right {
+  from {
+    opacity: 0;
+    translate: 48px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Waving hand and blinking caret */
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+.intro-play .wave {
+  animation: wave 1.6s ease-in-out 0.8s 2;
+}
+.wave:hover {
+  animation: wave 1.6s ease-in-out;
+}
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 4px;
+  vertical-align: -0.2em;
+  background: #c4f04d;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Scroll reveals (classes added by motion.js) */
+.reveal,
+.reveal-item {
+  opacity: 0;
+}
+.reveal.is-in {
+  animation: reveal-up 0.7s var(--ease-out) both;
+}
+.is-in .reveal-item {
+  animation: reveal-up 0.55s var(--ease-back) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-cols > span,
+  .loader-card {
+    transition: none;
+  }
+  .loader-fill,
+  .loader-dots::after,
+  .caret,
+  .wave,
+  .intro-play .wave {
+    animation: none;
+  }
+}
