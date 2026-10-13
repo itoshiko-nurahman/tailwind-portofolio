@@ -2,6 +2,8 @@
 
 Personal portfolio built with [Tailwind CSS 3](https://tailwindcss.com/) in a neo-brutalist style: thick black borders, hard offset shadows and flat colors (lime, pink, violet).
 
+Live at **https://itoshiko-nurahman.dev** (GitHub Pages with a custom domain, see `CNAME`).
+
 It is a static site (plain HTML, Tailwind CSS and a little vanilla JavaScript), so it works on GitHub Pages as-is.
 
 ## Sections
@@ -20,6 +22,7 @@ Then open `index.html` through any static server (fonts are self-hosted in `dist
 - `src/input.css` - Tailwind entry, font-face and a few component classes (`.btn`, `.icon-btn`, `.chip`...)
 - `src/output.css` - compiled CSS (committed so GitHub Pages can serve it)
 - `tailwind.config.js` - colors, fonts and the hard-shadow tokens
+- `dist/js/motion.js` - loading screen, hero intro, scroll reveals and stat counters (all skipped for reduced-motion users and bots)
 - `dist/js/script.js` - mobile menu, projects carousel and image lightbox
 - `dist/img`, `dist/fonts` - images and self-hosted Archivo Black / Space Mono
 
