@@ -28,5 +28,5 @@ Then open `index.html` through any static server (fonts are self-hosted in `dist
 
 ## Editing content
 - Projects: each `<article>` inside `[data-track]` is one slide. Point its "View on GitHub" link at the project's repo or live demo.
-- Photo: replace `dist/img/hero.jpg`.
-- Galleries: drop images into `dist/img/design` or `dist/img/gallery` and copy one `<li>` in the matching section of `index.html`.
+- Photo: replace `dist/img/hero.webp` (keep `hero.jpg` too, it is used by the structured data and sitemap).
+- Galleries: drop WebP images into `dist/img/design` or `dist/img/gallery` and copy one `<li>` in the matching section of `index.html`.
