@@ -95,7 +95,7 @@
             block.classList.add('reveal');
             // Stagger list items, cards and stat tiles inside the block
             const groups = new Map();
-            block.querySelectorAll('ul > li, ol > li, [data-track] > article, [aria-label="At a glance"] > div').forEach((item) => {
+            block.querySelectorAll('ul > li, ol > li, [data-track] > article, [data-glance] > div').forEach((item) => {
                 if (item.closest('.chip') || item.classList.contains('chip')) return;
                 const parent = item.parentElement;
                 const n = groups.get(parent) || 0;

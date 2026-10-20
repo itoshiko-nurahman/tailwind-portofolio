@@ -97,6 +97,15 @@
     @apply translate-x-[2px] translate-y-[2px] bg-lime shadow-none;
   }
 
+  /* EN / ID language switch */
+  .lang-btn {
+    @apply bg-white px-3 text-[11px] font-bold tracking-wider transition-colors hover:bg-paper2 sm:px-4;
+    font-family: 'Space Mono', ui-monospace, monospace;
+  }
+  .lang-btn[aria-pressed='true'] {
+    @apply bg-lime;
+  }
+
   .chip {
     @apply border-2 border-ink bg-white px-2 py-0.5 text-[10px] font-bold;
   }

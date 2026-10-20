@@ -8,10 +8,12 @@
     const setOpen = (open) => {
         nav.classList.toggle('hidden', !open);
         btn.setAttribute('aria-expanded', String(open));
-        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        const t = window.i18n ? window.i18n.t : (s) => s;
+        btn.setAttribute('aria-label', t(open ? 'Close menu' : 'Open menu'));
         icon.setAttribute('href', open ? '#i-close' : '#i-menu');
     };
 
+    document.addEventListener('langchange', () => setOpen(btn.getAttribute('aria-expanded') === 'true'));
     btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
     nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });

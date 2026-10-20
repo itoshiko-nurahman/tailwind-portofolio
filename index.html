@@ -164,7 +164,11 @@
                         <a href="#gallery" class="nav-link">Gallery</a>
                     </nav>
                     <div class="flex-1 lg:hidden"></div>
-                    <button id="menu-btn" type="button" class="border-l-3 border-ink px-4 transition-colors hover:bg-lime lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+                    <div class="flex items-stretch border-l-3 border-ink" role="group" aria-label="Language">
+                        <button type="button" data-lang="en" lang="en" aria-pressed="true" class="lang-btn" title="English">EN</button>
+                        <button type="button" data-lang="id" lang="id" aria-pressed="false" class="lang-btn border-l-3 border-ink" title="Bahasa Indonesia">ID</button>
+                    </div>
+                    <button id="menu-btn" type="button" class="border-l-3 border-ink px-4 transition-colors hover:bg-lime lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-i18n-off>
                         <svg class="h-5 w-5" aria-hidden="true"><use id="menu-icon" href="#i-menu"/></svg>
                     </button>
                     <a href="#contact" class="hidden items-center gap-2 border-l-3 border-ink bg-violet px-6 text-xs font-bold uppercase text-white transition-colors hover:bg-ink lg:flex">
@@ -230,7 +234,7 @@
                 </section>
 
                 <!-- Stats -->
-                <section class="grid grid-cols-2 border-b-3 border-ink lg:grid-cols-4" aria-label="At a glance">
+                <section class="grid grid-cols-2 border-b-3 border-ink lg:grid-cols-4" aria-label="At a glance" data-glance>
                     <div class="border-b-3 border-r-3 border-ink bg-white px-6 py-6 lg:border-b-0">
                         <p class="w-fit bg-[linear-gradient(transparent_62%,#c4f04d_62%)] px-1 -mx-1 font-display text-4xl leading-none sm:text-5xl" data-count="3.95">3.95</p>
                         <p class="mt-2 text-[11px] font-bold uppercase">GPA &middot; Semester 6</p>
@@ -877,5 +881,6 @@
 
     <script src="dist/js/motion.js" defer></script>
     <script src="dist/js/script.js" defer></script>
+    <script src="dist/js/i18n.js" defer></script>
 </body>
 </html>
