@@ -467,62 +467,84 @@ html.is-loading body {
   }
 }
 
-/* EN / ID language switch: a square track with a round knob that slides */
+/* EN / ID language switch: a hard-shadow track with a round knob that carries the active language */
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 8px;
   background: #fff;
-  padding: 0 12px;
-  font-family: 'Space Mono', ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  padding: 0 14px;
   transition: background-color 0.15s;
-}
-@media (min-width: 640px) {
-  .lang-switch {
-    padding: 0 16px;
-  }
 }
 .lang-switch:hover {
   background: #eceae3;
 }
 .lang-track {
   position: relative;
-  width: 46px;
-  height: 24px;
+  display: block;
+  width: 74px;
+  height: 30px;
   border: 3px solid #0b0b0b;
   background: #fff;
-  transition: background-color 0.2s;
+  box-shadow: 3px 3px 0 0 #0b0b0b;
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: background-color 0.25s, transform 0.1s, box-shadow 0.1s;
+}
+.lang-switch:hover .lang-track {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 0 #0b0b0b;
+}
+.lang-switch:active .lang-track {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+/* The language you would switch to, hinted on the empty side of the track */
+.lang-track::before {
+  content: 'ID';
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  margin-top: -0.6em;
+  line-height: 1.2;
+  opacity: 0.5;
 }
 .lang-knob {
   position: absolute;
   top: 50%;
-  left: 2px;
-  width: 14px;
-  height: 14px;
-  margin-top: -7px;
+  left: 3px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border: 3px solid #0b0b0b;
   border-radius: 9999px;
-  background: #0b0b0b;
-  transition: transform 0.28s var(--ease-back);
+  background: #6f4bff;
+  color: #fff;
+  transition: transform 0.35s var(--ease-back);
 }
-.lang-l {
-  opacity: 0.4;
-  transition: opacity 0.2s;
-}
-.lang-en,
-.lang-switch[aria-checked='true'] .lang-id {
-  opacity: 1;
-}
-.lang-switch[aria-checked='true'] .lang-en {
-  opacity: 0.4;
+.lang-knob::after {
+  content: 'EN';
+  font-size: 7px;
+  line-height: 1;
 }
 .lang-switch[aria-checked='true'] .lang-track {
   background: #c4f04d;
 }
+.lang-switch[aria-checked='true'] .lang-track::before {
+  content: 'EN';
+  right: auto;
+  left: 9px;
+}
 .lang-switch[aria-checked='true'] .lang-knob {
-  transform: translateX(22px);
+  transform: translateX(44px);
+  background: #ff7d9f;
+  color: #0b0b0b;
+}
+.lang-switch[aria-checked='true'] .lang-knob::after {
+  content: 'ID';
 }
 
 /* "Available" indicator */
