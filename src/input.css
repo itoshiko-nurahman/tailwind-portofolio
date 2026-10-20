@@ -25,13 +25,36 @@
   src: url('../dist/fonts/space-mono-latin-700-normal.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../dist/fonts/archivo-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../dist/fonts/archivo-latin-700-normal.woff2') format('woff2');
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 72px;
   }
   body {
-    @apply bg-paper font-mono text-ink antialiased;
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  /* Archivo for reading, Space Mono for labels, chips, buttons and code */
+  .uppercase:not(.font-display),
+  .chip,
+  code,
+  pre,
+  dt {
+    font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
   :focus-visible {
     outline: 3px solid #6f4bff;
@@ -444,6 +467,20 @@ html.is-loading body {
   }
 }
 
+/* "Available" indicator */
+.avail-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #0b0b0b;
+  background: #c4f04d;
+  animation: avail 1.8s ease-in-out infinite;
+}
+@keyframes avail {
+  50% {
+    background: #fff;
+  }
+}
+
 /* Waving hand and blinking caret */
 .wave {
   display: inline-block;
@@ -508,6 +545,7 @@ html.is-loading body {
   .loader-fill,
   .loader-dots::after,
   .caret,
+  .avail-dot,
   .wave,
   .intro-play .wave {
     animation: none;

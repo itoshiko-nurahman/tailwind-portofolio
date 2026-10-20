@@ -12,6 +12,7 @@ module.exports = {
         violet: '#6f4bff',
       },
       fontFamily: {
+        sans: ['Archivo', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['"Archivo Black"', 'Impact', 'sans-serif'],
         mono: ['"Space Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
