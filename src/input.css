@@ -467,7 +467,7 @@ html.is-loading body {
   }
 }
 
-/* EN / ID language switch: a hard-shadow track with a round knob that carries the active language */
+/* EN / ID language switch: a plain track with a round knob that carries the active language */
 .lang-switch {
   display: flex;
   align-items: center;
@@ -481,67 +481,51 @@ html.is-loading body {
 .lang-track {
   position: relative;
   display: block;
-  width: 74px;
-  height: 30px;
+  width: 70px;
+  height: 28px;
   border: 3px solid #0b0b0b;
   background: #fff;
-  box-shadow: 3px 3px 0 0 #0b0b0b;
   font-family: 'Space Mono', ui-monospace, monospace;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  transition: background-color 0.25s, transform 0.1s, box-shadow 0.1s;
-}
-.lang-switch:hover .lang-track {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 0 #0b0b0b;
-}
-.lang-switch:active .lang-track {
-  transform: translate(3px, 3px);
-  box-shadow: none;
 }
 /* The language you would switch to, hinted on the empty side of the track */
 .lang-track::before {
   content: 'ID';
   position: absolute;
   top: 50%;
-  right: 9px;
+  right: 8px;
   margin-top: -0.6em;
   line-height: 1.2;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 .lang-knob {
   position: absolute;
   top: 50%;
-  left: 3px;
+  left: 2px;
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
-  border: 3px solid #0b0b0b;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
   border-radius: 9999px;
-  background: #6f4bff;
+  background: #0b0b0b;
   color: #fff;
-  transition: transform 0.35s var(--ease-back);
+  transition: transform 0.3s var(--ease-out);
 }
 .lang-knob::after {
   content: 'EN';
   font-size: 7px;
   line-height: 1;
 }
-.lang-switch[aria-checked='true'] .lang-track {
-  background: #c4f04d;
-}
 .lang-switch[aria-checked='true'] .lang-track::before {
   content: 'EN';
   right: auto;
-  left: 9px;
+  left: 8px;
 }
 .lang-switch[aria-checked='true'] .lang-knob {
-  transform: translateX(44px);
-  background: #ff7d9f;
-  color: #0b0b0b;
+  transform: translateX(40px);
 }
 .lang-switch[aria-checked='true'] .lang-knob::after {
   content: 'ID';

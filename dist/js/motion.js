@@ -89,7 +89,6 @@
         // Every top-level block of the page except the hero, plus the footer
         const blocks = Array.from(main.children).slice(1);
         const footer = document.querySelector('footer.grid');
-        if (footer) blocks.push(footer);
 
         blocks.forEach((block) => {
             block.classList.add('reveal');
@@ -105,15 +104,21 @@
             });
         });
 
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('is-in');
-                entry.target.querySelectorAll('[data-count]').forEach(countUp);
-                io.unobserve(entry.target);
-            });
-        }, { rootMargin: '0px 0px -12% 0px' });
-        blocks.forEach((b) => io.observe(b));
+        const observe = (targets, rootMargin) => {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-in');
+                    entry.target.querySelectorAll('[data-count]').forEach(countUp);
+                    io.unobserve(entry.target);
+                });
+            }, { rootMargin });
+            targets.forEach((t) => io.observe(t));
+        };
+        observe(blocks, '0px 0px -12% 0px');
+        // The footer sits at the very end of the page, inside the bottom 12% that the margin above
+        // cuts off, so on a tall screen it could never scroll into the "visible" area. Watch it plainly.
+        if (footer) { footer.classList.add('reveal'); observe([footer], '0px'); }
     };
 
     // ---- Stat counters -------------------------------------------------------
