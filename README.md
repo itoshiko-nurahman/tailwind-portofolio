@@ -1,32 +1,66 @@
-# Itoshiko Nurahman - Portfolio
+# Itoshiko Nurahman — Portfolio
 
-Personal portfolio built with [Tailwind CSS 3](https://tailwindcss.com/) in a neo-brutalist style: thick black borders, hard offset shadows and flat colors (lime, pink, violet).
+[![Live site](https://img.shields.io/badge/live-itoshiko--nurahman.dev-c4f04d?style=flat-square&labelColor=0b0b0b)](https://itoshiko-nurahman.dev)
 
-Live at **https://itoshiko-nurahman.dev** (GitHub Pages with a custom domain, see `CNAME`).
+![Portfolio preview](docs/preview.webp)
 
-It is a static site (plain HTML, Tailwind CSS and a little vanilla JavaScript), so it works on GitHub Pages as-is.
+Personal portfolio of an Informatics student at Universitas Ahmad Dahlan (Yogyakarta), open to internships in AI/ML, QA automation and web development.
 
-## Sections
-Hero with quick facts, stats, skills, about and education, what I do, featured projects carousel, training, achievements, seminars, experience and committees, design works and photo galleries (with a lightbox) and a contact section.
+**Live: [itoshiko-nurahman.dev](https://itoshiko-nurahman.dev)**
 
-## Develop
+## What's inside
+
+- **Hero and stats** with an "open to internships" badge and quick facts
+- **Featured projects** carousel (Laravel, React, Python NLP), right below the fold
+- Skills, about, education, what I do
+- Training, achievements, seminars, experience and committees
+- Design works and photo galleries with a lightbox
+- Contact section with every link in one place
+
+## Design notes
+
+Neo-brutalist: thick black borders, hard offset shadows and flat lime, pink and violet. Colour is used as an accent, not on every block, so the page stays readable.
+
+- Body text is **Archivo**; labels, buttons and code use **Space Mono**; headings use **Archivo Black**. All three are self-hosted in `dist/fonts`, so the page makes no third-party requests.
+- A loading screen, hero intro and scroll reveals. They are skipped for visitors who prefer reduced motion, and the page is fully visible with JavaScript off.
+- Images are WebP, with explicit sizes so nothing jumps while loading.
+- Semantic landmarks, skip link, visible focus states, structured data and Open Graph tags.
+
+## Tech
+
+Plain HTML, [Tailwind CSS 3](https://tailwindcss.com/) and a little vanilla JavaScript. No framework and no runtime build on the server, so it deploys to GitHub Pages as-is.
+
+## Run it locally
+
 ```bash
 npm install
 npm run css     # watch and rebuild src/output.css while editing
 npm run build   # one-off minified build
 ```
-Then open `index.html` through any static server (fonts are self-hosted in `dist/fonts`, and browsers block them on `file://`), e.g. `python3 -m http.server`.
 
-## Structure
-- `index.html` - all content and Tailwind classes
-- `src/input.css` - Tailwind entry, font-face and a few component classes (`.btn`, `.icon-btn`, `.chip`...)
-- `src/output.css` - compiled CSS (committed so GitHub Pages can serve it)
-- `tailwind.config.js` - colors, fonts and the hard-shadow tokens
-- `dist/js/motion.js` - loading screen, hero intro, scroll reveals and stat counters (all skipped for reduced-motion users and bots)
-- `dist/js/script.js` - mobile menu, projects carousel and image lightbox
-- `dist/img`, `dist/fonts` - images and self-hosted Archivo Black / Space Mono
+Then serve the folder with any static server, for example `python -m http.server`. Fonts are blocked on `file://`, so opening `index.html` directly will look wrong.
+
+## Project structure
+
+```
+index.html              all content and Tailwind classes
+src/input.css           Tailwind entry, font-face, component classes, motion styles
+src/output.css          compiled CSS (committed so GitHub Pages can serve it)
+tailwind.config.js      colours, fonts and hard-shadow tokens
+dist/js/motion.js       loading screen, hero intro, scroll reveals, stat counters
+dist/js/script.js       mobile menu, projects carousel, image lightbox
+dist/img  dist/fonts    images and self-hosted fonts
+docs/preview.webp       screenshot used in this README
+```
 
 ## Editing content
-- Projects: each `<article>` inside `[data-track]` is one slide. Point its "View on GitHub" link at the project's repo or live demo.
-- Photo: replace `dist/img/hero.webp` (keep `hero.jpg` too, it is used by the structured data and sitemap).
-- Galleries: drop WebP images into `dist/img/design` or `dist/img/gallery` and copy one `<li>` in the matching section of `index.html`.
+
+- **Projects:** each `<article>` inside `[data-track]` is one slide. Point its "View on GitHub" link at the repo or live demo.
+- **Hero photo:** replace `dist/img/hero.webp`. Keep `hero.jpg` too, because the structured data and sitemap use it.
+- **Galleries:** drop WebP images into `dist/img/design` or `dist/img/gallery`, then copy one `<li>` in the matching section of `index.html`.
+- **Social preview:** `dist/img/og-image.jpg` stays a JPG, since not every platform reads WebP.
+- After changing any Tailwind classes, run `npm run build` and commit `src/output.css`.
+
+## Contact
+
+[GitHub](https://github.com/itoshiko-nurahman) · [LinkedIn](https://www.linkedin.com/in/itoshiko-nurahman/) · [Email](mailto:itoshikonurahman@gmail.com)
