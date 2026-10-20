@@ -164,10 +164,11 @@
                         <a href="#gallery" class="nav-link">Gallery</a>
                     </nav>
                     <div class="flex-1 lg:hidden"></div>
-                    <div class="flex items-stretch border-l-3 border-ink" role="group" aria-label="Language">
-                        <button type="button" data-lang="en" lang="en" aria-pressed="true" class="lang-btn" title="English">EN</button>
-                        <button type="button" data-lang="id" lang="id" aria-pressed="false" class="lang-btn border-l-3 border-ink" title="Bahasa Indonesia">ID</button>
-                    </div>
+                    <button id="lang-switch" type="button" role="switch" aria-checked="false" aria-label="Bahasa Indonesia" lang="id" class="lang-switch border-l-3 border-ink" data-i18n-off>
+                        <span class="lang-l lang-en" aria-hidden="true">EN</span>
+                        <span class="lang-track" aria-hidden="true"><span class="lang-knob"></span></span>
+                        <span class="lang-l lang-id" aria-hidden="true">ID</span>
+                    </button>
                     <button id="menu-btn" type="button" class="border-l-3 border-ink px-4 transition-colors hover:bg-lime lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-i18n-off>
                         <svg class="h-5 w-5" aria-hidden="true"><use id="menu-icon" href="#i-menu"/></svg>
                     </button>

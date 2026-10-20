@@ -256,6 +256,8 @@
     const origTitle = title ? title.textContent : '';
     const origDesc = desc ? desc.getAttribute('content') : '';
 
+    const toggle = document.getElementById('lang-switch');
+
     const apply = (lang) => {
         const id = lang === 'id';
         textNodes.forEach(({ node, orig }) => {
@@ -269,7 +271,7 @@
         if (title) title.textContent = (id && translate(origTitle)) || origTitle;
         if (desc) desc.setAttribute('content', (id && translate(origDesc)) || origDesc);
         doc.lang = id ? 'id' : 'en';
-        document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+        if (toggle) toggle.setAttribute('aria-checked', String(id));
         document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
     };
 
@@ -294,6 +296,6 @@
     window.i18n = { t: (en) => (current === 'id' && translate(en)) || en, get lang() { return current; } };
 
     collect();
-    document.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => set(b.dataset.lang, true)));
+    if (toggle) toggle.addEventListener('click', () => set(current === 'id' ? 'en' : 'id', true));
     set(detect(), false);
 })();

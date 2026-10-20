@@ -97,15 +97,6 @@
     @apply translate-x-[2px] translate-y-[2px] bg-lime shadow-none;
   }
 
-  /* EN / ID language switch */
-  .lang-btn {
-    @apply bg-white px-3 text-[11px] font-bold tracking-wider transition-colors hover:bg-paper2 sm:px-4;
-    font-family: 'Space Mono', ui-monospace, monospace;
-  }
-  .lang-btn[aria-pressed='true'] {
-    @apply bg-lime;
-  }
-
   .chip {
     @apply border-2 border-ink bg-white px-2 py-0.5 text-[10px] font-bold;
   }
@@ -474,6 +465,64 @@ html.is-loading body {
     opacity: 1;
     translate: 0 0;
   }
+}
+
+/* EN / ID language switch: a square track with a round knob that slides */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  padding: 0 12px;
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: background-color 0.15s;
+}
+@media (min-width: 640px) {
+  .lang-switch {
+    padding: 0 16px;
+  }
+}
+.lang-switch:hover {
+  background: #eceae3;
+}
+.lang-track {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border: 3px solid #0b0b0b;
+  background: #fff;
+  transition: background-color 0.2s;
+}
+.lang-knob {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border-radius: 9999px;
+  background: #0b0b0b;
+  transition: transform 0.28s var(--ease-back);
+}
+.lang-l {
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+.lang-en,
+.lang-switch[aria-checked='true'] .lang-id {
+  opacity: 1;
+}
+.lang-switch[aria-checked='true'] .lang-en {
+  opacity: 0.4;
+}
+.lang-switch[aria-checked='true'] .lang-track {
+  background: #c4f04d;
+}
+.lang-switch[aria-checked='true'] .lang-knob {
+  transform: translateX(22px);
 }
 
 /* "Available" indicator */
