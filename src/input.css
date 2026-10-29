@@ -127,6 +127,20 @@
       linear-gradient(90deg, rgba(11, 11, 11, 0.16) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+  /* Fainter version for hero — text stays readable */
+  .grid-paper-faint {
+    background-color: #fff;
+    background-image: linear-gradient(rgba(11, 11, 11, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 11, 11, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* Grid bg for English class cards area */
+  .eng-grid-paper {
+    background-color: #f4f2ec;
+    background-image: linear-gradient(rgba(11, 11, 11, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 11, 11, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
   .grid-violet {
     background-color: #6f4bff;
     background-image: linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),

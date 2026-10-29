@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -195,7 +195,7 @@
 
                 <!-- Hero -->
                 <section class="grid border-b-3 border-ink lg:grid-cols-[1.08fr_1fr]" aria-labelledby="hero-title">
-                    <div class="grid-paper flex flex-col justify-center border-b-3 border-ink px-6 py-10 sm:px-10 sm:py-14 lg:border-b-0 lg:border-r-3 lg:px-12">
+                    <div class="grid-paper-faint flex flex-col justify-center border-b-3 border-ink px-6 py-10 sm:px-10 sm:py-14 lg:border-b-0 lg:border-r-3 lg:px-12">
                         <h1 id="hero-title">
                             <span class="mb-6 block w-fit bg-violet px-2.5 py-1.5 font-mono text-[11px] font-bold uppercase leading-normal text-white" data-intro style="--i:0">Hey, I'm Itoshiko Nurahman <span class="wave" aria-hidden="true">👋</span></span>
                             <span class="block font-display text-[clamp(2.6rem,7.4vw,4.5rem)] uppercase leading-[0.98]"><span class="block" data-intro="slam" style="--i:1">Web &amp; AI</span> <span class="block" data-intro="slam" style="--i:2">Developer</span></span>
@@ -220,7 +220,7 @@
                     </div>
 
                     <div class="relative flex items-center justify-center bg-pink px-6 pb-20 pt-14 sm:px-10 lg:py-14">
-                        <div class="relative w-[220px] sm:w-[270px]" data-intro="pop" style="--i:2">
+                        <div class="relative w-[260px] sm:w-[310px]" data-intro="pop" style="--i:2">
                             <div class="absolute inset-0 translate-x-3.5 -translate-y-3.5 border-3 border-ink bg-lime sm:translate-x-4 sm:-translate-y-4" aria-hidden="true"></div>
                             <div class="relative aspect-[4/5] overflow-hidden border-3 border-ink bg-ink">
                                 <img src="dist/img/hero.webp" alt="Portrait of Itoshiko Nurahman holding an event ID card" width="800" height="1200" class="h-full w-full object-cover object-[50%_30%]" fetchpriority="high">
@@ -743,123 +743,86 @@
 
                 <!-- Professional English Class -->
                 <div id="english" class="border-t-3 border-ink">
+                    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[190px_minmax(0,1fr)]">
 
-                    <!-- Section header -->
-                    <div class="grid grid-cols-[minmax(0,1fr)] border-b-3 border-ink lg:grid-cols-[190px_minmax(0,1fr)]">
-                        <div class="flex items-center gap-3 border-b-3 border-ink bg-paper2 px-6 py-4 lg:flex-col lg:items-start lg:justify-center lg:gap-2 lg:border-b-0 lg:border-r-3 lg:py-8">
-                            <h2 class="font-display text-lg uppercase tracking-wide">English Class</h2>
+                        <!-- Sidebar label: spans full height of all tasks -->
+                        <div class="flex items-center gap-3 border-b-3 border-ink bg-paper2 px-6 py-4 lg:flex-col lg:items-start lg:justify-start lg:gap-2 lg:border-b-0 lg:border-r-3 lg:pt-8">
+                            <h2 id="english-title" class="font-display text-lg uppercase tracking-wide">English Class</h2>
                             <span class="h-3.5 w-3.5 border-3 border-ink bg-violet" aria-hidden="true"></span>
                         </div>
-                        <div class="px-6 py-8 sm:px-10">
-                            <p class="text-[11px] font-bold uppercase tracking-wider text-violet">Coursework &middot; Universitas Ahmad Dahlan</p>
-                            <p class="mt-3 font-display text-3xl uppercase leading-tight sm:text-4xl">Professional<br>English Class</p>
-                            <p class="mt-4 max-w-[55ch] text-[15px] leading-relaxed">Assignments from my Professional English course, practising how to introduce myself and communicate clearly and professionally in English for real, everyday professional situations.</p>
-                        </div>
-                    </div>
 
-                    <!-- Assignment 01: Self-Introduction -->
-                    <div class="grid grid-cols-[minmax(0,1fr)] border-b-3 border-ink lg:grid-cols-[minmax(0,1fr)_340px]">
-                        <section class="border-b-3 border-ink px-6 py-8 sm:px-10 lg:border-b-0 lg:border-r-3" aria-labelledby="eng-task-1">
-                            <div class="flex items-end gap-5">
-                                <span class="font-display text-[4.5rem] leading-none text-ink/20">01</span>
-                                <div>
-                                    <span class="chip !bg-violet !text-white">Video</span>
-                                    <h3 id="eng-task-1" class="mt-2 font-display text-xl uppercase leading-tight sm:text-2xl">Self-Introduction</h3>
-                                </div>
+                        <!-- Right column: header + 3 cards -->
+                        <div>
+                            <!-- Section intro -->
+                            <div class="border-b-3 border-ink px-6 py-8 sm:px-10">
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-violet">Coursework &middot; Universitas Ahmad Dahlan</p>
+                                <p class="mt-3 font-display text-3xl uppercase leading-tight sm:text-4xl">Professional<br>English Class</p>
+                                <p class="mt-4 max-w-[55ch] text-[15px] leading-relaxed">Assignments from my Professional English course, practising how to introduce myself and communicate clearly and professionally in English for real, everyday professional situations.</p>
                             </div>
-                            <p class="mt-4 max-w-[52ch] text-[15px] leading-relaxed">A short video in which I introduce myself in English: who I am, where I study, and what I'm passionate about.</p>
-                            <p class="mt-3 text-[11px] font-bold uppercase tracking-wider text-ink/50">Assignment 1</p>
-                            <a href="https://drive.google.com/file/d/1nSxLwjuh8c_MRyABUVNOVSbCxis-5A62/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5">
-                                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
-                                Open in Google Drive
-                            </a>
-                        </section>
-                        <!-- Video thumbnail preview -->
-                        <div class="grid-paper relative flex items-center justify-center border-b-3 border-ink p-6 lg:border-b-0">
-                            <a href="https://drive.google.com/file/d/1nSxLwjuh8c_MRyABUVNOVSbCxis-5A62/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="group relative block w-full max-w-[280px] border-3 border-ink bg-white shadow-brutal transition duration-100 hover:-translate-y-1 hover:shadow-brutal-lg" aria-label="Open Self-Introduction video in Google Drive">
-                                <div class="flex aspect-video items-center justify-center bg-ink">
-                                    <div class="px-4 text-center">
-                                        <p class="font-display text-base uppercase leading-tight text-white sm:text-lg">Self-Introduction</p>
-                                        <p class="mt-1 font-mono text-[10px] text-white/60">Itoshiko Nurahman</p>
+
+                            <!-- Cards grid -->
+                            <section class="eng-grid-paper grid grid-cols-1 gap-5 p-6 sm:grid-cols-2 sm:p-8 lg:grid-cols-3" aria-labelledby="english-title">
+
+                                <!-- Card 01 -->
+                                <article class="flex flex-col border-3 border-ink bg-white pb-1.5 pr-1.5 shadow-brutal transition duration-100 hover:-translate-y-1 hover:shadow-brutal-lg">
+                                    <div class="border-b-3 border-ink bg-violet px-4 py-3">
+                                        <span class="font-display text-[3rem] leading-none text-white/30">01</span>
                                     </div>
-                                </div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <span class="flex h-12 w-12 items-center justify-center border-3 border-ink bg-lime shadow-brutal transition duration-100 group-hover:bg-violet group-hover:text-white">
-                                        <svg class="h-5 w-5 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                    </span>
-                                </div>
-                            </a>
+                                    <div class="flex flex-1 flex-col p-4">
+                                        <div class="flex items-center gap-2">
+                                            <span class="chip !bg-violet !text-white">Video</span>
+                                            <span class="font-mono text-[10px] text-ink/40 uppercase">Assignment 1</span>
+                                        </div>
+                                        <h3 id="eng-task-1" class="mt-3 font-display text-lg uppercase leading-tight">Self-Introduction</h3>
+                                        <p class="mt-2 flex-1 text-[13px] leading-relaxed text-ink/70">A short video in which I introduce myself in English: who I am, where I study, and what I'm passionate about.</p>
+                                        <a href="https://drive.google.com/file/d/1nSxLwjuh8c_MRyABUVNOVSbCxis-5A62/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5 w-full justify-center">
+                                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
+                                            Open in Google Drive
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <!-- Card 02 -->
+                                <article class="flex flex-col border-3 border-ink bg-white pb-1.5 pr-1.5 shadow-brutal transition duration-100 hover:-translate-y-1 hover:shadow-brutal-lg">
+                                    <div class="border-b-3 border-ink bg-pink px-4 py-3">
+                                        <span class="font-display text-[3rem] leading-none text-ink/20">02</span>
+                                    </div>
+                                    <div class="flex flex-1 flex-col p-4">
+                                        <div class="flex items-center gap-2">
+                                            <span class="chip !bg-pink">PDF</span>
+                                            <span class="font-mono text-[10px] text-ink/40 uppercase">Second Meeting</span>
+                                        </div>
+                                        <h3 id="eng-task-2" class="mt-3 font-display text-lg uppercase leading-tight">Professional Writing for Online Shopping</h3>
+                                        <p class="mt-2 flex-1 text-[13px] leading-relaxed text-ink/70">A formal complaint letter for an item that didn't match its description, plus short professional messages based on my own online order.</p>
+                                        <a href="https://drive.google.com/file/d/1dHvqFY94V4_c62ixQyBJeTMm2AKKiD3S/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5 w-full justify-center">
+                                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
+                                            Open in Google Drive
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <!-- Card 03 -->
+                                <article class="flex flex-col border-3 border-ink bg-white pb-1.5 pr-1.5 shadow-brutal transition duration-100 hover:-translate-y-1 hover:shadow-brutal-lg">
+                                    <div class="border-b-3 border-ink bg-lime px-4 py-3">
+                                        <span class="font-display text-[3rem] leading-none text-ink/20">03</span>
+                                    </div>
+                                    <div class="flex flex-1 flex-col p-4">
+                                        <div class="flex items-center gap-2">
+                                            <span class="chip !bg-lime">PDF</span>
+                                            <span class="font-mono text-[10px] text-ink/40 uppercase">Third Meeting</span>
+                                        </div>
+                                        <h3 id="eng-task-3" class="mt-3 font-display text-lg uppercase leading-tight">Thesis Background &amp; English Journal</h3>
+                                        <p class="mt-2 flex-1 text-[13px] leading-relaxed text-ink/70">An explanation of my thesis background and the English-language academic journal I used as a reference, demonstrating academic reading and summarising skills.</p>
+                                        <a href="https://drive.google.com/file/d/1JCINgW72Hd3GadaS6Azr2O3tcdHjI4_1/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5 w-full justify-center">
+                                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
+                                            Open in Google Drive
+                                        </a>
+                                    </div>
+                                </article>
+
+                            </section>
                         </div>
                     </div>
-
-                    <!-- Assignment 02: Professional Writing -->
-                    <div class="grid grid-cols-[minmax(0,1fr)] border-b-3 border-ink lg:grid-cols-[minmax(0,1fr)_340px]">
-                        <section class="border-b-3 border-ink px-6 py-8 sm:px-10 lg:border-b-0 lg:border-r-3" aria-labelledby="eng-task-2">
-                            <div class="flex items-end gap-5">
-                                <span class="font-display text-[4.5rem] leading-none text-ink/20">02</span>
-                                <div>
-                                    <span class="chip !bg-pink">PDF</span>
-                                    <h3 id="eng-task-2" class="mt-2 font-display text-xl uppercase leading-tight sm:text-2xl">Professional Writing for Online Shopping</h3>
-                                </div>
-                            </div>
-                            <p class="mt-4 max-w-[52ch] text-[15px] leading-relaxed">A formal complaint letter for an item that didn't match its description, plus short professional messages based on my own online order.</p>
-                            <ul class="mt-3 space-y-1 text-[13px] leading-relaxed">
-                                <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Asking the seller before purchase</li>
-                                <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Asking about a store voucher</li>
-                                <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Asking about shipping time</li>
-                            </ul>
-                            <p class="mt-3 text-[11px] font-bold uppercase tracking-wider text-ink/50">Second Meeting</p>
-                            <a href="https://drive.google.com/file/d/1dHvqFY94V4_c62ixQyBJeTMm2AKKiD3S/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5">
-                                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
-                                Open in Google Drive
-                            </a>
-                        </section>
-                        <!-- Complaint letter excerpt preview -->
-                        <div class="relative flex items-center justify-center border-b-3 border-ink bg-paper2 p-6 lg:border-b-0">
-                            <div class="w-full max-w-[280px] border-3 border-ink bg-white shadow-brutal">
-                                <div class="border-b-3 border-ink bg-ink px-3 py-1.5">
-                                    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-lime">Excerpt &mdash; Complaint Letter</p>
-                                </div>
-                                <div class="p-4">
-                                    <p class="text-[11px] font-bold uppercase tracking-wide">Complaint: Item not as described</p>
-                                    <p class="mt-2 text-[11px] italic leading-relaxed text-ink/70">Dear Seller,<br><br>I am writing about my order placed on [date] for the product I purchased. The product page described it differently from what I received&hellip;</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Assignment 03: Thesis Background & English Journal -->
-                    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_340px]">
-                        <section class="border-b-3 border-ink px-6 py-8 sm:px-10 lg:border-b-0 lg:border-r-3" aria-labelledby="eng-task-3">
-                            <div class="flex items-end gap-5">
-                                <span class="font-display text-[4.5rem] leading-none text-ink/20">03</span>
-                                <div>
-                                    <span class="chip !bg-lime">PDF</span>
-                                    <h3 id="eng-task-3" class="mt-2 font-display text-xl uppercase leading-tight sm:text-2xl">Thesis Background &amp; English Journal</h3>
-                                </div>
-                            </div>
-                            <p class="mt-4 max-w-[52ch] text-[15px] leading-relaxed">An explanation of my thesis background and the English-language academic journal I used as a reference, demonstrating academic reading and summarising skills.</p>
-                            <p class="mt-3 text-[11px] font-bold uppercase tracking-wider text-ink/50">Third Meeting</p>
-                            <a href="https://drive.google.com/file/d/1JCINgW72Hd3GadaS6Azr2O3tcdHjI4_1/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-5">
-                                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M15 3h6v6M10 14L21 3"/></svg>
-                                Open in Google Drive
-                            </a>
-                        </section>
-                        <!-- Journal / academic preview card -->
-                        <div class="relative flex items-center justify-center border-b-3 border-ink bg-ink p-6 lg:border-b-0">
-                            <div class="w-full max-w-[280px] border-3 border-lime bg-white shadow-[6px_6px_0_0_#c4f04d]">
-                                <div class="border-b-3 border-lime bg-lime px-3 py-1.5">
-                                    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-ink">Academic Journal</p>
-                                </div>
-                                <div class="p-4">
-                                    <p class="text-[11px] font-bold uppercase leading-snug tracking-wide">Thesis Background</p>
-                                    <p class="mt-2 text-[11px] leading-relaxed text-ink/70">Aspect-Based Sentiment Analysis &mdash; exploring how NLP models understand nuanced opinions in Indonesian text.</p>
-                                    <p class="mt-3 font-mono text-[10px] text-violet">Itoshiko Nurahman &bull; UAD</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Design works -->
