@@ -50,14 +50,11 @@ src/output.css          compiled CSS (committed so GitHub Pages can serve it)
 tailwind.config.js      colours, fonts and hard-shadow tokens
 dist/js/motion.js       loading screen, hero intro, scroll reveals, stat counters
 dist/js/script.js       mobile menu, projects carousel, image lightbox
-dist/js/i18n.js         EN / ID switch and the Indonesian dictionary
 dist/img  dist/fonts    images and self-hosted fonts
 docs/preview.webp       screenshot used in this README
 ```
 
 ## Editing content
-
-- **Translations:** English is the source text in `index.html`. Indonesian lives in the dictionary at the top of `dist/js/i18n.js`, keyed by the exact English string. If you change English copy, update (or add) its key there too; strings with no entry simply stay in English. The site opens in Indonesian for browsers set to Indonesian, otherwise English, and `?lang=id` / `?lang=en` forces one.
 
 - **Projects:** each `<article>` inside `[data-track]` is one slide. Point its "View on GitHub" link at the repo or live demo.
 - **Hero photo:** replace `dist/img/hero.webp`. Keep `hero.jpg` too, because the structured data and sitemap use it.

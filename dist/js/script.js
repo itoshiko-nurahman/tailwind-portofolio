@@ -8,12 +8,10 @@
     const setOpen = (open) => {
         nav.classList.toggle('hidden', !open);
         btn.setAttribute('aria-expanded', String(open));
-        const t = window.i18n ? window.i18n.t : (s) => s;
-        btn.setAttribute('aria-label', t(open ? 'Close menu' : 'Open menu'));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         icon.setAttribute('href', open ? '#i-close' : '#i-menu');
     };
 
-    document.addEventListener('langchange', () => setOpen(btn.getAttribute('aria-expanded') === 'true'));
     btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
     nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
@@ -107,4 +105,34 @@
     // Click on the dimmed backdrop closes the dialog
     dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
     dialog.addEventListener('close', () => { img.src = ''; if (opener) opener.focus(); });
+})();
+
+// Scroll progress bar + back-to-top button
+(() => {
+    const bar = document.getElementById('scroll-progress');
+    const top = document.getElementById('to-top');
+    let ticking = false;
+    const update = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const y = window.scrollY;
+        if (bar) bar.style.transform = `scaleX(${max > 0 ? Math.min(y / max, 1) : 0})`;
+        if (top) top.classList.toggle('is-visible', y > 600);
+        ticking = false;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+})();
+
+// Hero portrait tilt (mouse only, skipped for reduced motion)
+(() => {
+    const el = document.querySelector('[data-tilt]');
+    if (!el || !window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
+    el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty('--ry', `${x * 10}deg`);
+        el.style.setProperty('--rx', `${-y * 10}deg`);
+    });
+    el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
 })();

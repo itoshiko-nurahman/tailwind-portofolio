@@ -481,70 +481,6 @@ html.is-loading body {
   }
 }
 
-/* EN / ID language switch: a plain track with a round knob that carries the active language */
-.lang-switch {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding: 0 14px;
-  transition: background-color 0.15s;
-}
-.lang-switch:hover {
-  background: #eceae3;
-}
-.lang-track {
-  position: relative;
-  display: block;
-  width: 70px;
-  height: 28px;
-  border: 3px solid #0b0b0b;
-  background: #fff;
-  font-family: 'Space Mono', ui-monospace, monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-/* The language you would switch to, hinted on the empty side of the track */
-.lang-track::before {
-  content: 'ID';
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  margin-top: -0.6em;
-  line-height: 1.2;
-  opacity: 0.45;
-}
-.lang-knob {
-  position: absolute;
-  top: 50%;
-  left: 2px;
-  display: grid;
-  place-items: center;
-  width: 18px;
-  height: 18px;
-  margin-top: -9px;
-  border-radius: 9999px;
-  background: #0b0b0b;
-  color: #fff;
-  transition: transform 0.3s var(--ease-out);
-}
-.lang-knob::after {
-  content: 'EN';
-  font-size: 7px;
-  line-height: 1;
-}
-.lang-switch[aria-checked='true'] .lang-track::before {
-  content: 'EN';
-  right: auto;
-  left: 8px;
-}
-.lang-switch[aria-checked='true'] .lang-knob {
-  transform: translateX(40px);
-}
-.lang-switch[aria-checked='true'] .lang-knob::after {
-  content: 'ID';
-}
-
 /* "Available" indicator */
 .avail-dot {
   width: 10px;
@@ -628,4 +564,91 @@ html.is-loading body {
   .intro-play .wave {
     animation: none;
   }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  height: 5px;
+  background: transparent;
+  pointer-events: none;
+}
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #c4f04d, #ff7d9f, #6f4bff);
+  border-bottom: 2px solid #0b0b0b;
+}
+
+/* Ticker */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-item {
+  padding: 0.75rem 1.25rem;
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.marquee-star {
+  align-self: center;
+  color: #c4f04d;
+}
+.marquee-star:nth-of-type(3n + 2) {
+  color: #ff7d9f;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 3px solid #0b0b0b;
+  background: #c4f04d;
+  box-shadow: 4px 4px 0 0 #0b0b0b;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.1s, background-color 0.1s;
+}
+.to-top.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.to-top:hover {
+  background: #ff7d9f;
+  box-shadow: 2px 2px 0 0 #0b0b0b;
+}
+
+/* Hero portrait tilt (set by script.js on fine pointers) */
+[data-tilt] {
+  transition: transform 0.15s ease-out;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
 }
