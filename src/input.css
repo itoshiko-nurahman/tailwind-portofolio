@@ -762,9 +762,14 @@ li:nth-child(even) > [data-lightbox]:hover img {
   box-shadow: 8px 8px 0 0 #0b0b0b;
   background-color: #c4f04d;
 }
+.hover-card:hover > span:first-child,
+.hover-card:hover > p:first-child {
+  animation: hop 0.6s ease-out;
+}
 .hover-row {
-  transition: background-color 0.15s;
+  transition: background-color 0.15s, box-shadow 0.15s, padding-left 0.15s;
 }
 .hover-row:hover {
   background-color: #c4f04d;
+  box-shadow: inset 6px 0 0 0 #6f4bff;
 }
