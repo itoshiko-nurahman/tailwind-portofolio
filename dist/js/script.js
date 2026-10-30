@@ -190,7 +190,10 @@
     const pick = (list) => list[Math.floor(Math.random() * list.length)];
 
     const drop = () => {
-        const size = rand(28, 72);
+        // Fall in the empty margins beside the main content; on narrow screens use the full width
+        const gutter = (window.innerWidth - 1240) / 2;
+        const sideOnly = gutter >= 70;
+        const size = sideOnly ? Math.min(rand(36, 80), gutter - 24) : rand(24, 44);
         const svg = document.createElementNS(NS, 'svg');
         svg.setAttribute('viewBox', '0 0 100 100');
         svg.setAttribute('width', size);
@@ -199,12 +202,18 @@
         svg.setAttribute('stroke', '#0b0b0b');
         svg.setAttribute('stroke-width', '6');
         svg.setAttribute('stroke-linejoin', 'miter');
-        svg.style.cssText = 'position:absolute;top:0;left:0;opacity:.6;will-change:transform';
+        svg.style.cssText = 'position:absolute;top:0;left:0;opacity:.85;will-change:transform';
         svg.innerHTML = pick(SHAPES);
         layer.appendChild(svg);
 
-        const x = rand(0, Math.max(0, window.innerWidth - size));
-        const drift = rand(-80, 80);
+        let x = rand(0, Math.max(0, window.innerWidth - size));
+        if (sideOnly) {
+            const pad = 12;
+            x = Math.random() < 0.5
+                ? rand(pad, gutter - size - pad)
+                : window.innerWidth - gutter + rand(pad, gutter - size - pad);
+        }
+        const drift = sideOnly ? rand(-10, 10) : rand(-40, 40);
         const spin = rand(-540, 540);
         const fall = window.innerHeight + size * 2;
 
@@ -221,5 +230,6 @@
             schedule();
         }, rand(500, 10000));
     };
+    setTimeout(drop, 800);
     schedule();
 })();
