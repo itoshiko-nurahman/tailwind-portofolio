@@ -161,3 +161,65 @@
         });
     });
 })();
+
+// Falling 2D shapes (decorative background)
+(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const COLORS = ['#c4f04d', '#ff7d9f', '#6f4bff', '#ffffff'];
+    const SHAPES = [
+        '<polygon points="50,8 94,88 6,88"/>',                                  // triangle
+        '<rect x="12" y="12" width="76" height="76"/>',                         // square
+        '<circle cx="50" cy="50" r="40"/>',                                     // circle
+        '<polygon points="50,6 90,28 90,72 50,94 10,72 10,28"/>',              // hexagon
+        '<polygon points="50,6 94,38 77,92 23,92 6,38"/>',                      // pentagon
+        '<polygon points="50,6 94,50 50,94 6,50"/>',                            // diamond
+        '<polygon points="50,6 62,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 38,38"/>', // star
+        '<polygon points="30,18 94,18 70,82 6,82"/>',                           // parallelogram
+        '<polygon points="50,6 85,20 94,56 70,90 30,90 6,56 15,20"/>',          // heptagon
+        '<path d="M6 94 A88 88 0 0 1 94 6 L94 94 Z"/>'                          // quarter circle
+    ];
+
+    const layer = document.createElement('div');
+    layer.setAttribute('aria-hidden', 'true');
+    layer.style.cssText = 'position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:5';
+    document.body.appendChild(layer);
+
+    const rand = (min, max) => min + Math.random() * (max - min);
+    const pick = (list) => list[Math.floor(Math.random() * list.length)];
+
+    const drop = () => {
+        const size = rand(28, 72);
+        const svg = document.createElementNS(NS, 'svg');
+        svg.setAttribute('viewBox', '0 0 100 100');
+        svg.setAttribute('width', size);
+        svg.setAttribute('height', size);
+        svg.setAttribute('fill', pick(COLORS));
+        svg.setAttribute('stroke', '#0b0b0b');
+        svg.setAttribute('stroke-width', '6');
+        svg.setAttribute('stroke-linejoin', 'miter');
+        svg.style.cssText = 'position:absolute;top:0;left:0;opacity:.6;will-change:transform';
+        svg.innerHTML = pick(SHAPES);
+        layer.appendChild(svg);
+
+        const x = rand(0, Math.max(0, window.innerWidth - size));
+        const drift = rand(-80, 80);
+        const spin = rand(-540, 540);
+        const fall = window.innerHeight + size * 2;
+
+        const anim = svg.animate([
+            { transform: `translate(${x}px, ${-size * 1.5}px) rotate(0deg)` },
+            { transform: `translate(${x + drift}px, ${fall - size * 1.5}px) rotate(${spin}deg)` }
+        ], { duration: rand(5000, 9000), easing: 'cubic-bezier(.4,0,.8,.6)', fill: 'forwards' });
+        anim.onfinish = () => svg.remove();
+    };
+
+    const schedule = () => {
+        setTimeout(() => {
+            if (!document.hidden) drop();
+            schedule();
+        }, rand(500, 10000));
+    };
+    schedule();
+})();
