@@ -219,6 +219,16 @@
                     </div>
 
                     <div class="relative flex items-center justify-center bg-pink px-6 pb-20 pt-14 sm:px-10 lg:py-14">
+                            <div class="spin-badge absolute -bottom-9 -left-7 z-10 hidden h-[104px] w-[104px] sm:block" aria-hidden="true">
+                                <svg viewBox="0 0 120 120" class="spin-ring h-full w-full">
+                                    <defs><path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+                                    <circle cx="60" cy="60" r="57" fill="#c4f04d" stroke="#0b0b0b" stroke-width="4"/>
+                                    <text font-family="Space Mono, monospace" font-size="12.5" font-weight="700" letter-spacing="2.2" fill="#0b0b0b"><textPath href="#badge-circle">OPEN TO WORK &#9733; AI/ML &#9733; QA &#9733; WEB &#9733;</textPath></text>
+                                </svg>
+                                <svg viewBox="0 0 24 24" class="absolute inset-0 m-auto h-7 w-7"><path d="M12 2l2.6 6.9 7.4.5-5.7 4.7 1.9 7.2L12 17.6 5.8 21.3l1.9-7.2L2 9.4l7.4-.5z" fill="#6f4bff" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="float-shape absolute left-3 top-6 hidden h-6 w-6 rounded-full border-3 border-ink bg-violet sm:block" aria-hidden="true"></span>
+                            <span class="float-shape float-b absolute right-6 top-24 hidden h-5 w-5 rotate-12 border-3 border-ink bg-white sm:block" aria-hidden="true"></span>
                         <div class="relative w-[260px] sm:w-[310px]" data-tilt data-intro="pop" style="--i:2">
                             <div class="absolute inset-0 translate-x-3.5 -translate-y-3.5 border-3 border-ink bg-lime sm:translate-x-4 sm:-translate-y-4" aria-hidden="true"></div>
                             <div class="relative aspect-[4/5] overflow-hidden border-3 border-ink bg-ink">
@@ -737,9 +747,9 @@
                     </section>
 
                     <section class="grid-violet relative flex min-h-[300px] flex-col justify-center overflow-hidden px-7 py-10 text-white sm:px-9" aria-labelledby="cta-title">
-                        <h2 id="cta-title" class="font-display text-2xl uppercase leading-[1.1] sm:text-[1.7rem]">Let's build something amazing together.</h2>
+                        <h2 id="cta-title" data-hop class="font-display text-2xl uppercase leading-[1.1] sm:text-[1.7rem]">Let's build something amazing together.</h2>
                         <a href="#contact" class="btn mt-7 w-fit bg-white text-ink">Get in touch <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-                        <svg class="pointer-events-none absolute -bottom-9 -right-9 h-36 w-36 rotate-[14deg]" viewBox="0 0 100 100" aria-hidden="true">
+                        <svg class="spin-slow pointer-events-none absolute -bottom-9 -right-9 h-36 w-36" viewBox="0 0 100 100" aria-hidden="true">
                             <polygon points="50,2 58,20 76,8 76,28 96,26 86,44 100,56 82,64 90,84 70,80 66,100 52,86 36,98 32,78 12,84 18,64 0,54 16,42 6,24 26,26 26,6 42,20" fill="#ff7d9f" stroke="#0b0b0b" stroke-width="4" stroke-linejoin="miter"/>
                         </svg>
                     </section>
@@ -870,53 +880,10 @@
                     </section>
                 </div>
 
-                <!-- Photography -->
-                <div class="grid grid-cols-[minmax(0,1fr)] border-t-3 border-ink lg:grid-cols-[190px_minmax(0,1fr)]">
-                    <div class="flex items-center gap-3 border-b-3 border-ink bg-paper2 px-6 py-4 lg:flex-col lg:items-start lg:justify-center lg:gap-2 lg:border-b-0 lg:border-r-3 lg:py-8">
-                        <h2 id="photography" class="font-display text-lg uppercase tracking-wide">Photos</h2>
-                        <span class="h-3.5 w-3.5 border-3 border-ink bg-lime" aria-hidden="true"></span>
-                    </div>
-                    <section class="px-5 py-8 sm:px-9" aria-labelledby="photography">
-                        <ul class="grid grid-cols-2 gap-5 sm:grid-cols-3">
-                            <li>
-                                <button type="button" data-lightbox data-src="dist/img/gallery/flowers.webp" data-alt="White ixora flowers against dark green leaves" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: White ixora flowers against dark green leaves">
-                                    <img src="dist/img/gallery/flowers.webp" width="750" height="1000" alt="White ixora flowers against dark green leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" data-lightbox data-src="dist/img/gallery/alpaca-pen.webp" data-alt="Pink alpaca-shaped pen top in front of a window and a cloudy sky" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Pink alpaca-shaped pen top in front of a window and a cloudy sky">
-                                    <img src="dist/img/gallery/alpaca-pen.webp" width="750" height="1000" alt="Pink alpaca-shaped pen top in front of a window and a cloudy sky" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" data-lightbox data-src="dist/img/gallery/campus-sky.webp" data-alt="Blue campus building under a bright sky, framed by tree leaves" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Blue campus building under a bright sky, framed by tree leaves">
-                                    <img src="dist/img/gallery/campus-sky.webp" width="750" height="1000" alt="Blue campus building under a bright sky, framed by tree leaves" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" data-lightbox data-src="dist/img/gallery/quran-laptop.webp" data-alt="A Qur&#39;an and green prayer beads resting on a laptop keyboard" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: A Qur&#39;an and green prayer beads resting on a laptop keyboard">
-                                    <img src="dist/img/gallery/quran-laptop.webp" width="750" height="1000" alt="A Qur&#39;an and green prayer beads resting on a laptop keyboard" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" data-lightbox data-src="dist/img/gallery/portrait.webp" data-alt="Close-up portrait of Itoshiko" class="block w-full border-3 border-ink bg-ink shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal" aria-label="Enlarge: Close-up portrait of Itoshiko">
-                                    <img src="dist/img/gallery/portrait.webp" width="1000" height="1000" alt="Close-up portrait of Itoshiko" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-square">
-                                </button>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/itoshiko_n/" target="_blank" rel="noopener noreferrer" class="flex h-full min-h-[11rem] flex-col justify-between border-3 border-ink bg-violet p-4 text-white shadow-brutal-sm transition duration-100 hover:-translate-y-1 hover:shadow-brutal">
-                                    <span class="font-display text-lg uppercase leading-tight">Edited in Lightroom</span>
-                                    <span class="flex items-center gap-2 text-[13px] font-bold">More on @itoshiko_n <svg class="h-3 w-3" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-
                 <!-- Contact -->
                 <div id="contact" class="grid grid-cols-[minmax(0,1fr)] border-t-3 border-ink lg:grid-cols-2">
                     <section class="border-b-3 border-ink bg-pink px-6 py-10 sm:px-10 lg:border-b-0 lg:border-r-3" aria-labelledby="contact-title">
-                        <h2 id="contact-title" class="font-display text-4xl uppercase leading-[1.05] sm:text-5xl">Let's talk.</h2>
+                        <h2 id="contact-title" data-hop="loop" class="font-display text-4xl uppercase leading-[1.05] sm:text-5xl">Let's talk.</h2>
                         <p class="mt-4 max-w-[42ch] text-[15px] leading-relaxed">Hiring an intern or junior teammate in AI/ML, QA automation or web development? Have a project, a question, or just want to say hi? My inbox is open.</p>
                         <a href="mailto:itoshikonurahman@gmail.com" class="btn mt-6 bg-lime">itoshikonurahman@gmail.com <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                         <p class="mt-6 text-[11px] font-bold uppercase">Based in Yogyakarta, Indonesia (UTC+7)</p>

@@ -136,3 +136,28 @@
     });
     el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
 })();
+
+// Split [data-hop] headings into words and letters so they can jump
+(() => {
+    document.querySelectorAll('main h2.font-display:not([data-hop])').forEach((h) => { if (!h.children.length) h.setAttribute('data-hop', ''); });
+    document.querySelectorAll('[data-hop]').forEach((el) => {
+        const text = el.textContent.trim();
+        el.setAttribute('aria-label', text);
+        let k = 0;
+        el.textContent = '';
+        text.split(/\s+/).forEach((word, w, all) => {
+            const span = document.createElement('span');
+            span.className = 'hop-word';
+            span.setAttribute('aria-hidden', 'true');
+            [...word].forEach((ch) => {
+                const c = document.createElement('span');
+                c.className = 'hop-char';
+                c.style.setProperty('--k', k++);
+                c.textContent = ch;
+                span.appendChild(c);
+            });
+            el.appendChild(span);
+            if (w < all.length - 1) el.appendChild(document.createTextNode(' '));
+        });
+    });
+})();

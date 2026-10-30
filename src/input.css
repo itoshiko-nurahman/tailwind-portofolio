@@ -652,3 +652,106 @@ html.is-loading body {
   transition: transform 0.15s ease-out;
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
 }
+
+/* ---- Playful motion ---- */
+.spin-ring {
+  animation: spin 14s linear infinite;
+}
+.spin-badge:hover .spin-ring {
+  animation-duration: 3s;
+}
+.spin-slow {
+  animation: spin 24s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.float-shape {
+  animation: float 4.5s ease-in-out infinite;
+}
+.float-b {
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-14px) rotate(20deg);
+  }
+}
+
+/* Letters that jump: [data-hop] on hover, [data-hop='loop'] all the time */
+.hop-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.hop-char {
+  display: inline-block;
+}
+[data-hop]:hover .hop-char {
+  animation: hop 0.55s var(--ease-back, ease-out) both;
+  animation-delay: calc(var(--k) * 40ms);
+}
+[data-hop='loop'] .hop-char {
+  animation: hop 1.8s ease-in-out infinite;
+  animation-delay: calc(var(--k) * 90ms);
+}
+@keyframes hop {
+  0%, 40%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-0.28em) rotate(-5deg);
+  }
+}
+
+/* Hover effects */
+.skill svg {
+  transition: transform 0.25s var(--ease-back, ease-out), color 0.15s;
+}
+.skill:hover svg {
+  transform: scale(1.3) rotate(-8deg);
+  color: #6f4bff;
+}
+.icon-btn:hover svg {
+  animation: wiggle 0.4s ease-in-out;
+}
+@keyframes wiggle {
+  25% { transform: rotate(-14deg) scale(1.15); }
+  75% { transform: rotate(14deg) scale(1.15); }
+}
+.chip {
+  transition: transform 0.15s, background-color 0.15s;
+}
+.chip:hover {
+  transform: rotate(-4deg) scale(1.1);
+  background-color: #c4f04d;
+}
+[data-lightbox] img {
+  transition: transform 0.3s var(--ease-back, ease-out), filter 0.3s;
+  filter: saturate(0.85);
+}
+[data-lightbox]:hover img {
+  transform: scale(1.04) rotate(-1.5deg);
+  filter: saturate(1.25);
+}
+li:nth-child(even) > [data-lightbox]:hover img {
+  transform: scale(1.04) rotate(1.5deg);
+}
+[data-lightbox] {
+  overflow: hidden;
+}
+[data-glance] > div {
+  transition: background-color 0.2s;
+}
+[data-glance] > div:nth-child(1):hover { background-color: #c4f04d; }
+[data-glance] > div:nth-child(2):hover { background-color: #ff7d9f; }
+[data-glance] > div:nth-child(3):hover { background-color: #6f4bff; color: #fff; }
+[data-glance] > div:nth-child(4):hover { background-color: #c4f04d; }
+[data-glance] > div:hover [data-count] {
+  animation: hop 0.6s ease-out;
+}
+.nav-link:hover {
+  color: #6f4bff;
+}
