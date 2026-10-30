@@ -745,13 +745,26 @@ li:nth-child(even) > [data-lightbox]:hover img {
 [data-glance] > div {
   transition: background-color 0.2s;
 }
-[data-glance] > div:nth-child(1):hover { background-color: #c4f04d; }
-[data-glance] > div:nth-child(2):hover { background-color: #ff7d9f; }
-[data-glance] > div:nth-child(3):hover { background-color: #6f4bff; color: #fff; }
-[data-glance] > div:nth-child(4):hover { background-color: #c4f04d; }
+[data-glance] > div:hover { background-color: #c4f04d; }
 [data-glance] > div:hover [data-count] {
   animation: hop 0.6s ease-out;
 }
 .nav-link:hover {
   color: #6f4bff;
+}
+
+/* Card hover: lift + bigger hard shadow + lime wash */
+.hover-card {
+  transition: transform 0.15s var(--ease-out), box-shadow 0.15s, background-color 0.15s;
+}
+.hover-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 0 #0b0b0b;
+  background-color: #c4f04d;
+}
+.hover-row {
+  transition: background-color 0.15s;
+}
+.hover-row:hover {
+  background-color: #c4f04d;
 }
